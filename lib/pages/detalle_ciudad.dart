@@ -5,8 +5,12 @@ class DetalleCiudad extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("DetalleCiudad"),
-    );
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Detalle Ciudad'),
+        ),
+        body: Container(
+          child: Text("DetalleCiudad"),
+        ));
   }
 }
