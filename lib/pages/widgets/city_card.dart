@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/models/ciudad.dart';
 import 'package:weather_app/providers/ciudad_provider.dart';
-import 'package:weather_icons/weather_icons.dart';
 
 class CityCard extends StatelessWidget {
   CityCard({Key key}) : super(key: key);
