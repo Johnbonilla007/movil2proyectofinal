@@ -31,10 +31,15 @@ class CityCard extends StatelessWidget {
           Navigator.pushNamed(context, '/detalle', arguments: ciudad);
         },
         child: ListTile(
-          title: Text(ciudad.name),
-          subtitle: Text('$state °C'),
-          leading: Icon(Icons.wb_cloudy),
-          trailing: Icon(Icons.access_alarms_rounded),
-        ));
+            title: Text(ciudad.name),
+            subtitle: Text('$state °C'),
+            leading: Icon(Icons.wb_cloudy),
+            trailing: Container(
+                child: Column(
+              children: [
+                Text(ciudad.main.humidity.toString()),
+                Text(ciudad.wind.speed.toString())
+              ],
+            ))));
   }
 }
