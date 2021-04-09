@@ -3,7 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/pages/widgets/city_card.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key key}) : super(key: key);
+  HomePage({Key key}) : super(key: key);
+
+  List<String> cities = [
+    "La Ceiba, hn",
+    "San Pedro Sula, hn",
+    "Tela, hn",
+    "Danli, hn",
+    "Choluteca, hn",
+    "Tegucigalpa, hn",
+    "Comayagua, hn",
+    "Tocoa, hn",
+    "Intibucá, hn",
+    "La Paz, hn",
+    "Puerto Lempira, hn",
+    "Roatan, hn",
+    "Catacamas, hn",
+    "El Progreso, hn",
+    "Siguatepeque, hn",
+    "Jutiapa, hn",
+    "Comayagua, hn"
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -13,17 +33,20 @@ class HomePage extends StatelessWidget {
       ),
       body: Container(
         child: ListView(
-          children: [
-            CityCard(),
-            ListTile(
-              title: Text("La Ceiba"),
-              subtitle: Text("Temperatura"),
-              leading: Icon(Icons.ac_unit),
-              trailing: Icon(Icons.access_alarms_rounded),
-            )
-          ],
+          children: getCitiesState(),
         ),
       ),
     );
+  }
+
+  List<Widget> getCitiesState() {
+    return cities.map((city) {
+      return Column(
+        children: [
+          CityCard(cityName: city),
+          Divider(),
+        ],
+      );
+    }).toList();
   }
 }
