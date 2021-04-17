@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/models/ciudad.dart';
 import 'package:weather_app/providers/ciudad_provider.dart';
+import 'dart:io';
 
 class CityCard extends StatelessWidget {
   CityCard({Key key, @required this.cityName}) : super(key: key);
@@ -34,8 +35,9 @@ class CityCard extends StatelessWidget {
         child: ListTile(
             title: Text(ciudad.name),
             subtitle: Text('$state °C'),
-            leading: Image.network(
-                'https://www.pngfind.com/pngs/m/32-323842_png-file-thunder-weather-icon-transparent-png.png'),
+            leading: Image(
+              image: AssetImage(getStringIcon(ciudad.main.temp)),
+            ),
             trailing: Container(
                 child: Column(
               children: [
@@ -43,5 +45,21 @@ class CityCard extends StatelessWidget {
                 Text("Viento :" + ciudad.wind.speed.toString()),
               ],
             ))));
+  }
+
+  String getStringIcon(double temp) {
+    if (temp < 300) {
+      return 'assets/thunder.png';
+    }
+
+    if (temp < 600) {
+      return 'assets/rain.png';
+    }
+
+    if (temp >= 800) {
+      return 'assets/sun.png';
+    }
+
+    return 'assets/cloudy.png';
   }
 }
