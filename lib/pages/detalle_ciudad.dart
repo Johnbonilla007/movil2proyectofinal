@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/models/ciudad.dart';
-import 'package:weather_app/models/detalle.dart';
 import 'package:weather_app/pages/widgets/detalle_card.dart';
-import 'package:weather_app/providers/ciudad_provider.dart';
 
 class DetalleCiudad extends StatelessWidget {
   DetalleCiudad({Key key}) : super(key: key);

@@ -31,18 +31,21 @@ class DetalleCard extends StatelessWidget {
 
     return ciudadItems
         .map((ciudad) => GestureDetector(
-            child: ListTile(
-                title: Text(ciudad.dtTxt.toString()),
-                subtitle: Text('${(ciudad.main.temp - 273.15).round()}°C'),
-                leading:
-                    Image(image: AssetImage(getStringIcon(ciudad.main.temp))),
-                trailing: Container(
-                    child: Column(
-                  children: [
-                    Text("Humedad: " + ciudad.main.humidity.toString()),
-                    Text("Viento :" + ciudad.wind.speed.toString()),
-                  ],
-                )))))
+                child: Card(
+              elevation: 1.0,
+              child: ListTile(
+                  title: Text(ciudad.dtTxt.toString()),
+                  subtitle: Text('${(ciudad.main.temp - 273.15).round()}°C'),
+                  leading:
+                      Image(image: AssetImage(getStringIcon(ciudad.main.temp))),
+                  trailing: Container(
+                      child: Column(
+                    children: [
+                      Text("Humedad: " + ciudad.main.humidity.toString()),
+                      Text("Viento :" + ciudad.wind.speed.toString()),
+                    ],
+                  ))),
+            )))
         .toList();
   }
 

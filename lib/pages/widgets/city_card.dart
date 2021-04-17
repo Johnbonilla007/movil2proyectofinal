@@ -32,19 +32,23 @@ class CityCard extends StatelessWidget {
         onTap: () {
           Navigator.pushNamed(context, '/detalle', arguments: ciudad);
         },
-        child: ListTile(
-            title: Text(ciudad.name),
-            subtitle: Text('$state °C'),
-            leading: Image(
-              image: AssetImage(getStringIcon(ciudad.main.temp)),
-            ),
-            trailing: Container(
-                child: Column(
-              children: [
-                Text("Humedad: " + ciudad.main.humidity.toString()),
-                Text("Viento :" + ciudad.wind.speed.toString()),
-              ],
-            ))));
+        child: Card(
+          elevation: 0.5,
+          shadowColor: Colors.indigo,
+          child: ListTile(
+              title: Text(ciudad.name),
+              subtitle: Text('$state °C'),
+              leading: Image(
+                image: AssetImage(getStringIcon(ciudad.main.temp)),
+              ),
+              trailing: Container(
+                  child: Column(
+                children: [
+                  Text("Humedad: " + ciudad.main.humidity.toString()),
+                  Text("Viento :" + ciudad.wind.speed.toString()),
+                ],
+              ))),
+        ));
   }
 
   String getStringIcon(double temp) {
