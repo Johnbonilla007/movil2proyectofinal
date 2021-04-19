@@ -4,8 +4,6 @@
 
 import 'dart:convert';
 
-import 'package:weather_app/pages/detalle_ciudad.dart';
-
 class CiudadExtendido {
   List<DetalleCiudad> items = [];
 
